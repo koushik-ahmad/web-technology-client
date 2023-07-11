@@ -9,7 +9,7 @@ const Footer = () => {
                     <div className="mb-6 md:mb-0">
                         <Link to='/' className="flex items-center">
                             <img src="https://i.ibb.co/2S83PPW/logo.png" className="h-12 mr-3" alt="FlowBite Logo" />
-                            <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Web Technology</span>
+                            <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-white">Web Technology</span>
                         </Link>
                     </div>
                     <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
@@ -83,7 +83,7 @@ const Footer = () => {
                             <span className="sr-only">Dribbble account</span>
                         </Link>
                     </div>
-                    <h2 className="pt-6 text-lg text-gray-900 sm:text-center dark:text-gray-400">© 2023 <Link to='/' className="hover:underline">Web Technology</Link>. All Rights Reserved.
+                    <h2 className="pt-6 text-md text-gray-900 sm:text-center dark:text-gray-400">© 2023 <Link to='/' className="hover:underline">Web Technology</Link>. All Rights Reserved.
                     </h2>
                 </div>
             </div>

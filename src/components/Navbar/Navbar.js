@@ -1,9 +1,25 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useState } from 'react'
 import { Link } from 'react-router-dom';
+import { UserContext } from '../../contexts/AuthContext';
+import { toast } from 'react-hot-toast';
 
 const Navbar = () => {
-    const [state, setState] = useState(false)
+    const [state, setState] = useState(false);
+    const { user, logOut } = useContext(UserContext);
+    console.log(user);
+
+
+    const handleSignOut = () => {
+        logOut()
+            .then(() => {
+                toast.success('Log out')
+            })
+            .catch((error) => {
+                console.error(error)
+                toast.error('Log out')
+            });
+    }
 
     return (
         <nav className="bg-white border-b w-full md:static md:text-sm md:border-none">
@@ -19,7 +35,7 @@ const Navbar = () => {
                             />
                         </Link>
                         <Link to='/'>
-                            <h2 className='text-2xl font-medium'>Web Technology</h2>
+                            <h2 className='text-xl font-medium'>Web Technology</h2>
                         </Link>
 
                     </div>
@@ -44,7 +60,7 @@ const Navbar = () => {
                 <div className={`flex-1 pb-3 mt-8 md:block md:pb-0 md:mt-0 ${state ? 'block' : 'hidden'}`}>
                     <ul className="justify-end items-center space-y-6 md:flex md:space-x-6 md:space-y-0">
 
-                        <div className='space-y-2 text-lg items-center gap-x-6 md:flex md:space-y-0'>
+                        <div className='space-y-2 text-md items-center gap-x-6 md:flex md:space-y-0'>
 
                             <li>
                                 <Link to="/home" className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">
@@ -66,21 +82,35 @@ const Navbar = () => {
                                     Blog
                                 </Link>
                             </li>
-                            <li>
-                                <Link to='/profile' className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">
-                                    Profile
-                                </Link>
-                            </li>
-                            <li>
-                                <Link to='/login' className="block py-1 px-2 text-center text-white bg-indigo-600 hover:bg-indigo-500 active:bg-indigo-700 active:shadow-none rounded-lg shadow md:inline">
-                                    Log in
-                                </Link>
-                            </li>
-                            <li>
-                                <Link to='/signup' className="block py-1 px-2 text-center text-white bg-indigo-600 hover:bg-indigo-500 active:bg-indigo-700 active:shadow-none rounded-lg shadow md:inline">
-                                    Sign Up
-                                </Link>
-                            </li>
+
+                            {user && user.uid ?
+                                <>
+                                    <li>
+                                        <Link to='/profile' className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">
+                                            Profile
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link onClick={handleSignOut} to='/signup' className="block py-1 px-2 text-center text-white bg-indigo-600 hover:bg-indigo-500 active:bg-indigo-700 active:shadow-none rounded-lg shadow md:inline">
+                                            Log out
+                                        </Link>
+                                    </li>
+                                </>
+                                :
+                                <>
+                                    <li>
+                                        <Link to='/login' className="block py-1 px-2 text-center text-white bg-indigo-600 hover:bg-indigo-500 active:bg-indigo-700 active:shadow-none rounded-lg shadow md:inline">
+                                            Log in
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link to='/signup' className="block py-1 px-2 text-center text-white bg-indigo-600 hover:bg-indigo-500 active:bg-indigo-700 active:shadow-none rounded-lg shadow md:inline">
+                                            Sign Up
+                                        </Link>
+                                    </li>
+                                </>
+                            }
+
                             <li className=''>
                                 <Link className="hs-dark-mode-active:hidden block hs-dark-mode group flex items-center text-gray-600 hover:text-blue-600 font-medium dark:text-gray-400 dark:hover:text-gray-500" href="#!" data-hs-theme-click-value="dark">
                                     <svg className="w-4 h-4" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
