@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { UserContext } from '../../contexts/AuthContext';
 import { toast } from 'react-hot-toast';
 
+
 const Navbar = () => {
     const [state, setState] = useState(false);
     const { user, logOut } = useContext(UserContext);
@@ -23,7 +24,7 @@ const Navbar = () => {
 
     return (
         <nav className="bg-white border-b w-full md:static md:text-sm md:border-none">
-            <div className="items-center px-4 max-w-screen-2xl mx-auto md:flex md:px-8">
+            <div className="items-center max-w-screen-2xl mx-auto md:flex ">
                 <div className="flex items-center justify-between py-3 md:py-5 md:block">
                     <div className='flex items-center'>
                         <Link to='/'>
@@ -86,8 +87,12 @@ const Navbar = () => {
                             {user && user.uid ?
                                 <>
                                     <li>
-                                        <Link to='/profile' className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">
-                                            Profile
+                                        <Link to='/profile' title={user.displayName} className="relative block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">
+                                            {user.photoURL ?
+                                                <img alt="profile" src={user?.photoURL} className="mx-auto object-cover rounded-full h-10 w-10" />
+                                                :
+                                                <img alt="profile" src='https://i.ibb.co/HCdWcYX/avatar.jpg' className="mx-auto object-cover border-2 rounded-full h-10 w-10" />
+                                            }
                                         </Link>
                                     </li>
                                     <li>
