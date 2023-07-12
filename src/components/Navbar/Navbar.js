@@ -24,7 +24,7 @@ const Navbar = () => {
 
     return (
         <nav className="bg-white border-b w-full md:static md:text-sm md:border-none">
-            <div className="items-center max-w-screen-2xl mx-auto md:flex ">
+            <div className="items-center px-4 max-w-screen-2xl mx-auto md:flex ">
                 <div className="flex items-center justify-between py-3 md:py-5 md:block">
                     <div className='flex items-center'>
                         <Link to='/'>

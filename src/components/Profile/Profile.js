@@ -34,7 +34,7 @@ const Profile = () => {
                             {user?.email ?
                                 <span className="text-gray-600">{user?.email}</span>
                                 :
-                                <span className="text-gray-600">Email: Unavailable</span>
+                                <span className="text-gray-600">Email: Not available</span>
                             }
                         </span>
                         <span className="flex items-center space-x-2">
@@ -43,7 +43,7 @@ const Profile = () => {
                             {user?.emailVerified ?
                                 <span className="text-green-500 font-semibold">Verified</span>
                                 :
-                                <span className="text-gray-600">Not Verified</span>
+                                <span className="text-red-600">Not Verified</span>
                             }
                         </span>
                     </div>
