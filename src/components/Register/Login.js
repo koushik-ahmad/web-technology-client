@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { UserContext } from '../../contexts/AuthContext';
 import { toast } from 'react-hot-toast';
 
@@ -7,7 +7,7 @@ const Login = () => {
     const [error, setError] = useState(null);
     const { signIn, googleSignIn, githubSignIn } = useContext(UserContext);
 
-
+    const navigate = useNavigate();
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -21,6 +21,7 @@ const Login = () => {
                 console.log(user);
                 toast.success('User login successful');
                 form.reset();
+                navigate('/');
             })
             .catch(error => {
                 console.error(error);
@@ -56,7 +57,7 @@ const Login = () => {
 
 
     return (
-        <main className="w-full h-full flex flex-col items-center justify-center py-5 px-4">
+        <main className="w-full h-full flex flex-col bg-gray-50 items-center justify-center py-5 px-4">
             <div className="max-w-sm w-full text-gray-600 space-y-5">
                 <div className="text-center pb-5">
                     <img src="https://i.ibb.co/2S83PPW/logo.png" width={100} className="mx-auto" alt="" />

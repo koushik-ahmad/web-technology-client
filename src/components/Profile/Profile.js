@@ -6,8 +6,8 @@ const Profile = () => {
     const { user } = useContext(UserContext);
 
     return (
-        <div className='pt-28 pb-48'>
-            <div className="max-w-md mx-auto my-4 p-8 sm:flex sm:space-x-6 rounded-md bg-gray-100 text-gray-800">
+        <div className='bg-gray-50 pt-28 pb-48'>
+            <div className="max-w-md mx-auto my-4 p-8 sm:flex sm:space-x-6 rounded-md bg-gray-200 text-gray-800">
                 <div className="flex-shrink-0 w-full mb-6 h-44 sm:h-32 sm:w-32 sm:mb-0">
 
                     {user?.photoURL ?

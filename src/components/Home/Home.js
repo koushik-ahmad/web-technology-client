@@ -32,7 +32,7 @@ const Home = () => {
 
 
     return (
-        <section>
+        <section className='bg-gray-50'>
             <div className="max-w-screen-xl mx-auto px-4 py-28 gap-12 text-gray-600 md:px-8">
                 <div className="space-y-6 max-w-2xl mx-auto text-center">
                     <div className="flex flex-wrap items-center justify-center gap-6 ">
