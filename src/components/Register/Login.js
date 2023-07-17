@@ -1,13 +1,16 @@
 import React, { useContext, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { UserContext } from '../../contexts/AuthContext';
 import { toast } from 'react-hot-toast';
 
 const Login = () => {
+    const [userEmail, setUserEmail] = useState('');
     const [error, setError] = useState(null);
-    const { signIn, googleSignIn, githubSignIn } = useContext(UserContext);
+    const { signIn, resetPassword, googleSignIn, githubSignIn } = useContext(UserContext);
 
     const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/';
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -19,16 +22,28 @@ const Login = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
-                toast.success('User login successful');
                 form.reset();
-                navigate('/');
+                toast.success('login success');
+                navigate(from, { replace: true });
             })
             .catch(error => {
                 console.error(error);
-                toast.error("Error password");
+                setError(error.message)
             })
     }
 
+    // reset password 
+    const handleReset = () => {
+        resetPassword(userEmail)
+            .then(() => {
+                toast.success('Password reset email sent!');
+
+            })
+            .catch(error => {
+                console.error(error);
+                setError(error.message)
+            })
+    }
 
     // Google signIn 
     const handleGoogleSignIn = () => {
@@ -36,6 +51,7 @@ const Login = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
+                navigate(from, { replace: true });
             })
             .catch(error => {
                 console.error(error);
@@ -48,6 +64,7 @@ const Login = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
+                navigate(from, { replace: true });
             })
             .catch(error => {
                 console.error(error);
@@ -74,6 +91,7 @@ const Login = () => {
                             Email Address
                         </label>
                         <input
+                            onBlur={(event) => setUserEmail(event.target.value)}
                             type="email"
                             name='email'
                             id='email'
@@ -103,7 +121,10 @@ const Login = () => {
                             </label>
                             <span>Remember me</span>
                         </div>
-                        <Link to='/' className="text-center text-indigo-600 hover:text-indigo-500">Forgot password?</Link>
+                        <Link onClick={handleReset} href="#" className="text-center text-indigo-600 hover:text-indigo-500">Forgot password?</Link>
+                    </div>
+                    <div className='text-red-600'>
+                        {error}
                     </div>
                     <button
                         className="w-full px-4 py-2 text-white font-medium bg-indigo-600 hover:bg-indigo-500 active:bg-indigo-600 rounded-lg duration-150"

@@ -1,13 +1,16 @@
-import React, { useContext } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import React, { useContext, useState } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { UserContext } from '../../contexts/AuthContext';
 import { toast } from 'react-hot-toast';
 
 
 const Signup = () => {
-    const { user, createUser, googleSignIn, githubSignIn } = useContext(UserContext);
+    const [error, setError] = useState(null);
+    const { createUser, updateName, verifyEmail, googleSignIn, githubSignIn } = useContext(UserContext);
 
     const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/';
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -19,18 +22,49 @@ const Signup = () => {
 
         // console.log(name, email, password, confirm);
 
+        // password validation 
+        if (password.length < 6) {
+            setError('Password should be 6 character or more');
+            return;
+        }
+        if (password !== confirm) {
+            setError('Your password did not match');
+            return;
+        }
+
+        // 1. create user 
         createUser(email, password)
             .then(result => {
                 const user = result.user;
                 console.log(user);
-                form.reset();
+
+                // 2. update name 
+                updateName(name)
+                    .then(() => {
+                        toast.success('Name updated');
+
+                        // 3. email verification 
+                        verifyEmail()
+                            .then(() => {
+                                toast.success('Please check your email for verification');
+                                navigate(from, { replace: true });
+                            })
+                            .catch((error) => {
+                                console.error(error.message);
+                            });
+
+                    })
+                    .catch((error) => {
+                        console.error(error.message);
+                    });
+
             })
             .catch(error => {
                 console.error(error);
-                toast.success('error stoast');
+                toast.success(error.message);
             })
 
-
+        form.reset();
     }
 
 
@@ -40,6 +74,7 @@ const Signup = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
+                navigate(from, { replace: true });
             })
             .catch(error => {
                 console.error(error);
@@ -52,6 +87,7 @@ const Signup = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
+                navigate(from, { replace: true });
             })
             .catch(error => {
                 console.error(error);
@@ -119,6 +155,9 @@ const Signup = () => {
                             required
                             className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-indigo-600 shadow-sm rounded-lg"
                         />
+                    </div>
+                    <div className='text-red-600'>
+                        {error}
                     </div>
                     <button
                         className="w-full px-4 py-2 text-white font-medium bg-indigo-600 hover:bg-indigo-500 active:bg-indigo-600 rounded-lg duration-150"

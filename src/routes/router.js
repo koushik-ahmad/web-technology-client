@@ -9,6 +9,7 @@ import Login from '../components/Register/Login';
 import Signup from '../components/Register/Signup';
 import Profile from '../components/Profile/Profile';
 import ErrorPage from '../components/ErrorPage/ErrorPage';
+import PrivateRoute from './PrivateRoute';
 
 const router = createBrowserRouter([
     {
@@ -26,7 +27,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/course',
-                element: <Course></Course>
+                element: <PrivateRoute><Course></Course></PrivateRoute>
             },
             {
                 path: '/faq',

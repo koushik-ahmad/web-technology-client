@@ -1,5 +1,5 @@
 import { createContext, useEffect, useState } from "react";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, onAuthStateChanged, signOut, GithubAuthProvider } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, onAuthStateChanged, signOut, GithubAuthProvider, updateProfile, sendEmailVerification, sendPasswordResetEmail } from "firebase/auth";
 import app from "../firebase/firebase.config";
 
 
@@ -21,6 +21,18 @@ const AuthContext = ({ children }) => {
         return createUserWithEmailAndPassword(auth, email, password)
     }
 
+    // 2 update name 
+    const updateName = (name) => {
+        setLoading(true);
+        return updateProfile(auth.currentUser, { displayName: name })
+    }
+
+    // 3 verify email 
+    const verifyEmail = () => {
+        setLoading(true);
+        return sendEmailVerification(auth.currentUser);
+    }
+
     // 2. Email $ password 
     const signIn = (email, password) => {
         setLoading(true)
@@ -37,6 +49,12 @@ const AuthContext = ({ children }) => {
     const githubSignIn = () => {
         setLoading(true);
         return signInWithPopup(auth, githubProvider);
+    }
+
+    // forget password 
+    const resetPassword = (email) => {
+        setLoading(true);
+        return sendPasswordResetEmail(auth, email);
     }
 
 
@@ -66,9 +84,12 @@ const AuthContext = ({ children }) => {
     const authInfo = {
         user,
         createUser,
+        updateName,
+        verifyEmail,
         signIn,
         googleSignIn,
         githubSignIn,
+        resetPassword,
         logOut,
         loading,
     }
