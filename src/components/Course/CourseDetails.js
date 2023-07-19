@@ -12,7 +12,7 @@ const CourseDetails = () => {
     }, [])
 
     return (
-        <div className='grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-5 px-5 '>
+        <div className='grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-5 px-10 '>
 
             {
                 categories.map(category => <DetailsPage
