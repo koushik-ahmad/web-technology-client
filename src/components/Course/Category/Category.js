@@ -9,7 +9,7 @@ const Category = () => {
     // console.log(details);
 
     return (
-        <div className='pb-10 pe-5 ms-10'>
+        <div className='pb-10 px-5'>
             <div className="max-w-4xl p-4 border-2 rounded-md text-gray-800">
                 <div className="space-y-4">
                     <div className="space-y-2">

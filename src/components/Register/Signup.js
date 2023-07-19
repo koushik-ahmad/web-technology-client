@@ -97,8 +97,8 @@ const Signup = () => {
 
 
     return (
-        <main className="w-full h-full flex flex-col ps-28 justify-center pt-2 pb-5 px-4">
-            <div className="max-w-sm w-full text-gray-600 space-y-2">
+        <main className="w-full h-full flex flex-col lg:pe-40 justify-center pt-2 pb-5 px-4">
+            <div className="max-w-sm w-full mx-auto text-gray-600 space-y-2">
                 <div className="text-center pb-2">
                     <img src="https://i.ibb.co/2S83PPW/logo.png" width={100} className="mx-auto" alt="" />
                     <div className="mb-2">
@@ -129,7 +129,7 @@ const Signup = () => {
                             name='email'
                             id='email'
                             required
-                            className="w-full mt-3 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-indigo-600 shadow-sm rounded-lg"
+                            className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-indigo-600 shadow-sm rounded-lg"
                         />
                     </div>
                     <div>

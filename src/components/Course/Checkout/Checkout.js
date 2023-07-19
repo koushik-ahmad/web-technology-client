@@ -83,7 +83,7 @@ const Checkout = () => {
                         <dialog id="my_modal_3" className="modal py-14 px-20  rounded-md">
                             <form method="dialog" className="modal-box">
                                 <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
-                                <h3 className="font-bold text-3xl">Congratulations !!!</h3>
+                                <h3 className="font-bold text-2xl">Congratulations !!!</h3>
                                 <p className="py-4">You have successfully completed this order !!</p>
                             </form>
                         </dialog>
