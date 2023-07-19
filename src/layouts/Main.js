@@ -8,13 +8,15 @@ const Main = () => {
     return (
         <div>
             <Navbar></Navbar>
-            <div className="grid grid-cols-1 gap-4 lg:grid-cols-3 lg:gap-2 lg:px-20 md:px-10 px-5">
-                <div className="gap-2">
-                    <CourseName></CourseName>
-                </div>
-                <div className="lg:col-span-2">
-                    <Outlet></Outlet>
-                </div>
+            <div className="max-w-screen-2xl mx-auto">
+                <div className='lg:flex md:flex'>
+                    <div className="lg:w-1/4 md:w-1/4 sm:w-full">
+                        <CourseName></CourseName>
+                    </div>
+                    <div className="lg:w-3/4 md:w-3/4 sm:w-full ">
+                        <Outlet></Outlet>
+                    </div>
+               </div>
             </div>
             <Footer></Footer>
         </div>

@@ -8,8 +8,8 @@ const Checkout = () => {
     // console.log(checkout);
 
     return (
-        <div>
-            <div className="flex flex-col max-w-3xl p-6 space-y-4 sm:p-10 bg-gray-50 text-gray-800">
+        <div className='p-5'>
+            <div className="flex flex-col max-w-3xl p-6 space-y-4 sm:p-10 border shadow-lg rounded-md text-gray-800">
                 <ul className="flex flex-col divide-y divide-gray-300">
                     <li className="flex flex-col pb-6 sm:flex-row sm:justify-between">
                         <div className="flex w-full space-x-2 sm:space-x-4">

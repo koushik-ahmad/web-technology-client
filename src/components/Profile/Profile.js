@@ -6,9 +6,9 @@ const Profile = () => {
     const { user } = useContext(UserContext);
 
     return (
-        <div className='pt-28 lg:ps-28 pb-48'>
+        <div className='pt-28 lg:ps-20 sm:px-20 pb-48 ps-5'>
             <div className="max-w-md my-4 p-8 sm:flex sm:space-x-6 rounded-md bg-gray-200 text-gray-800">
-                <div className="flex-shrink-0 w-full mb-6 h-44 sm:h-32 sm:w-32 sm:mb-0">
+                <div className="flex-shrink-0 w-full items-center h-44 sm:h-32 sm:w-32 sm:mb-0">
 
                     {user?.photoURL ?
                         <img src={user?.photoURL} alt="" className="w-32 h-32 mx-auto rounded-full bg-gray-500 aspect-square" />
