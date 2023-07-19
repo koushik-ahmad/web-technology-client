@@ -13,8 +13,8 @@ const Category = () => {
     // console.log(details);
 
     return (
-        <div ref={ref} className='pb-10 px-5'>
-            <div className="max-w-4xl p-4 border-2 rounded-md text-gray-800">
+        <div className='pb-10 px-5'>
+            <div ref={ref} className="max-w-4xl p-4 border-2 rounded-md text-gray-800">
                 <div className="space-y-4">
                     <div className="space-y-2">
                         <img src={photoURL} alt="" className="block object-center w-full rounded-md h-96 bg-gray-500" />
