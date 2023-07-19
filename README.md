@@ -1,17 +1,16 @@
-## Web Technology 
- 
+## Web Technology
+
 Live Site: [https://xenon-depth-391911.web.app/](https://xenon-depth-391911.web.app/).
 
 Server Site: [https://github.com/koushik-ahmad/web-technology-server/](https://github.com/koushik-ahmad/web-technology-server/).
 
-
 ### This project uses the following technologies:
 
-* Tailwind CSS for styling
-* Firebase for authentication and database
-* React Router DOM for routing
-* React-to-PDF to generate PDFs
-* React Icon for icons
+- Tailwind CSS for styling
+- Firebase for authentication and database
+- React Router DOM for routing
+- React-to-PDF to generate PDFs
+- React Icon for icons
 
 ### Features of web technology:
 
@@ -23,19 +22,18 @@ Server Site: [https://github.com/koushik-ahmad/web-technology-server/](https://g
 
 ### Installation:
 
-Clone the repository: `git clone`
-Navigate to the project directory: `cd project-name`
-Install the dependencies: `npm install`
-Run the development server: `npm start`
-
-`Note:` Before running the application, ensure you have the necessary environment variables set for Firebase authentication.
+1. Clone the repository: `git clone`
+2. Navigate to the project directory: `cd project-name`
+3. Install the dependencies: `npm install`
+4. Run the development server: `npm start`
 
 ### Credits:
 
-Tailwind CSS: [https://tailwindcss.com/](https://tailwindcss.com/)
-Firebase: [https://firebase.google.com/](https://firebase.google.com/)
-React Router DOM: [https://reactrouter.com/](https://reactrouter.com/)
-React-to-PDF: [https://www.npmjs.com/package/react-to-pdf](https://www.npmjs.com/package/react-to-pdf)
-React Icons: [https://react-icons.github.io/react-icons/](https://react-icons.github.io/react-icons/)
+1. Tailwind CSS: [https://tailwindcss.com/](https://tailwindcss.com/)
+2. Firebase: [https://firebase.google.com/](https://firebase.google.com/)
+3. React Router DOM: [https://reactrouter.com/](https://reactrouter.com/)
+4. React-to-PDF: [https://www.npmjs.com/package/react-to-pdf](https://www.npmjs.com/package/react-to-pdf)
+5. React Icons: [https://react-icons.github.io/react-icons/](https://react-icons.github.io/react-icons/)
+
 
 
