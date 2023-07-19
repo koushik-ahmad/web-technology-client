@@ -1,15 +1,19 @@
 import React from 'react';
 import { FaDownload } from 'react-icons/fa';
 import { Link, useLoaderData } from 'react-router-dom';
+import { createRef } from 'react';
+import Pdf from "react-to-pdf";
+
+
+const ref = createRef();
 
 const Category = () => {
     const details = useLoaderData();
-
     const { id, name, photoURL, description } = details;
     // console.log(details);
 
     return (
-        <div className='pb-10 px-5'>
+        <div ref={ref} className='pb-10 px-5'>
             <div className="max-w-4xl p-4 border-2 rounded-md text-gray-800">
                 <div className="space-y-4">
                     <div className="space-y-2">
@@ -21,9 +25,16 @@ const Category = () => {
                         </Link>
                         <p className="leadi text-gray-600">{description}</p>
                         <div className='pt-4 flex gap-8 pb-4'>
-                            <button type="button" className="px-4 py-2 flex items-center gap-3 font-semibold rounded bg-blue-600 text-gray-100">
-                                <FaDownload />  Download
-                            </button>
+
+                            {/* react-to-pdf  */}
+                            <Pdf targetRef={ref} filename="code-example.pdf">
+                                {({ toPdf }) =>
+                                    <button onClick={toPdf} type="button" className="px-4 py-2 flex items-center gap-3 font-semibold rounded bg-blue-600 text-gray-100">
+                                        <FaDownload />  Download
+                                    </button>
+                                }
+                            </Pdf>
+
                             <Link to={`/checkout/${id}`}>
                                 <button type="button" className="px-4 py-2 flex items-center gap-2 font-semibold rounded bg-blue-600 text-gray-100">
                                     Get Premium Access
