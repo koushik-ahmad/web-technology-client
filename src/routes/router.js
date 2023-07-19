@@ -1,7 +1,6 @@
 import React from 'react';
 import { createBrowserRouter } from 'react-router-dom';
 import Main from '../layouts/Main';
-import Home from '../components/Home/Home';
 import Course from '../components/Course/Course';
 import Faq from '../components/Faq/Faq';
 import Blog from '../components/Blog/Blog';
@@ -9,6 +8,8 @@ import Login from '../components/Register/Login';
 import Signup from '../components/Register/Signup';
 import Profile from '../components/Profile/Profile';
 import ErrorPage from '../components/ErrorPage/ErrorPage';
+import Category from '../components/Course/Category/Category';
+import Checkout from '../components/Course/Checkout/Checkout';
 import PrivateRoute from './PrivateRoute';
 
 const router = createBrowserRouter([
@@ -19,15 +20,21 @@ const router = createBrowserRouter([
         children: [
             {
                 path: '/',
-                element: <Home></Home>
-            },
-            {
-                path: '/home',
-                element: <Home></Home>
+                element: <Course></Course>
             },
             {
                 path: '/course',
-                element: <PrivateRoute><Course></Course></PrivateRoute>
+                element: <Course></Course>
+            },
+            {
+                path: '/category/:id',
+                element: <Category></Category>,
+                loader: ({ params }) => fetch(`https://web-technology-server-hazel.vercel.app/details/${params.id}`)
+            },
+            {
+                path: '/checkout/:id',
+                element: <PrivateRoute><Checkout></Checkout></PrivateRoute>,
+                loader: ({ params }) => fetch(`https://web-technology-server-hazel.vercel.app/details/${params.id}`)
             },
             {
                 path: '/faq',

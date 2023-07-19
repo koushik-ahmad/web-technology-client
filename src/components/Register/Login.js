@@ -74,7 +74,7 @@ const Login = () => {
 
 
     return (
-        <main className="w-full h-full flex flex-col bg-gray-50 items-center justify-center py-5 px-4">
+        <main className="w-full h-full flex flex-col ps-28 justify-center py-5 px-4">
             <div className="max-w-sm w-full text-gray-600 space-y-5">
                 <div className="text-center pb-5">
                     <img src="https://i.ibb.co/2S83PPW/logo.png" width={100} className="mx-auto" alt="" />

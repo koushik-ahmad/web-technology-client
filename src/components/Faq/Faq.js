@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const Faq = () => {
 
     return (
-        <section className="bg-gray-50 text-gray-800">
+        <section className="text-gray-800 pe-20">
             <div className="container flex flex-col items-center p-4 mx-auto md:p-8">
                 <h1 className="text-3xl font-bold leadi text-center sm:text-4xl"> FAQ Help Center</h1>
                 <div className="relative mt-6 mb-12">

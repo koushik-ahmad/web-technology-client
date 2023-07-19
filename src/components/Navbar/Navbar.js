@@ -8,7 +8,7 @@ import { toast } from 'react-hot-toast';
 const Navbar = () => {
     const [state, setState] = useState(false);
     const { user, logOut } = useContext(UserContext);
-    console.log(user);
+    // console.log(user);
 
 
     const handleSignOut = () => {
@@ -64,11 +64,6 @@ const Navbar = () => {
                         <div className='space-y-2 text-md items-center gap-x-6 md:flex md:space-y-0'>
 
                             <li>
-                                <Link to="/home" className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">
-                                    Home
-                                </Link>
-                            </li>
-                            <li>
                                 <Link to='/course' className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">
                                     Course
                                 </Link>
@@ -96,7 +91,7 @@ const Navbar = () => {
                                         </Link>
                                     </li>
                                     <li>
-                                        <Link onClick={handleSignOut} to='/signup' className="block py-1 px-2 text-center text-white bg-indigo-600 hover:bg-indigo-500 active:bg-indigo-700 active:shadow-none rounded-lg shadow md:inline">
+                                        <Link onClick={handleSignOut} to='/signup' className="block py-2 px-2 text-center text-white bg-indigo-600 hover:bg-indigo-500 active:bg-indigo-700 active:shadow-none rounded-lg shadow md:inline">
                                             Log out
                                         </Link>
                                     </li>
@@ -104,12 +99,12 @@ const Navbar = () => {
                                 :
                                 <>
                                     <li>
-                                        <Link to='/login' className="block py-1 px-2 text-center text-white bg-indigo-600 hover:bg-indigo-500 active:bg-indigo-700 active:shadow-none rounded-lg shadow md:inline">
+                                        <Link to='/login' className="block py-2 px-2 text-center text-white bg-indigo-600 hover:bg-indigo-500 active:bg-indigo-700 active:shadow-none rounded-lg shadow md:inline">
                                             Log in
                                         </Link>
                                     </li>
                                     <li>
-                                        <Link to='/signup' className="block py-1 px-2 text-center text-white bg-indigo-600 hover:bg-indigo-500 active:bg-indigo-700 active:shadow-none rounded-lg shadow md:inline">
+                                        <Link to='/signup' className="block py-2 px-2 text-center text-white bg-indigo-600 hover:bg-indigo-500 active:bg-indigo-700 active:shadow-none rounded-lg shadow md:inline">
                                             Sign Up
                                         </Link>
                                     </li>

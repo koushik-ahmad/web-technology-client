@@ -15,57 +15,55 @@ const AuthContext = ({ children }) => {
     const githubProvider = new GithubAuthProvider();
 
 
-    // 1 createUser
+    // 1. createUser
     const createUser = (email, password) => {
         setLoading(true)
         return createUserWithEmailAndPassword(auth, email, password)
     }
 
-    // 2 update name 
+    // 2. update name 
     const updateName = (name) => {
         setLoading(true);
         return updateProfile(auth.currentUser, { displayName: name })
     }
 
-    // 3 verify email 
+    // 3. verify email 
     const verifyEmail = () => {
         setLoading(true);
         return sendEmailVerification(auth.currentUser);
     }
 
-    // 2. Email $ password 
+    // 4. Email $ password 
     const signIn = (email, password) => {
         setLoading(true)
         return signInWithEmailAndPassword(auth, email, password)
     }
 
-    // 3. GoogleSignIn 
+    // 5. GoogleSignIn 
     const googleSignIn = () => {
         setLoading(true)
         return signInWithPopup(auth, googleProvider);
     }
 
-    // 4 GithubSignIn
+    // 6. GithubSignIn
     const githubSignIn = () => {
         setLoading(true);
         return signInWithPopup(auth, githubProvider);
     }
 
-    // forget password 
+    // 7. forget password 
     const resetPassword = (email) => {
         setLoading(true);
         return sendPasswordResetEmail(auth, email);
     }
 
 
-
-    // LogOut 
+    // 8. LogOut 
     const logOut = () => {
         setLoading(true);
         return signOut(auth);
     }
-
-
+    
 
 
 
